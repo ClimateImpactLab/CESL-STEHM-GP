@@ -78,9 +78,9 @@ if ~exist(directoryName,'dir')
 end
 
 %   Check data directory exists within this directory
-if ~exist(fullfile(directoryName,'data'),'dir')
-    errorString = ['Cannot find data directory ',...
-        fullfile(directoryName,'data'),char(10),...
+if ~exist(fullfile(directoryName,'data_oct_readable'),'dir')
+    errorString = ['Cannot find data_oct_readable directory ',...
+        fullfile(directoryName,'data_oct_readable'),char(10),...
         'Please ensure the selected directory is the unzipped ',...
         'directory, not the data directory within it'];
     error(errorString)
@@ -107,7 +107,7 @@ if length(unique(cellfun(@length,txt)))~=1
 end
 
 %   First, get list of files to load
-fileList = dir(fullfile(directoryName,'data','*.rlrdata'));
+fileList = dir(fullfile(directoryName,'data_oct_readable','*.rlrdata'));
 fileList = {fileList.name}';
 
 noStations = length(fileList);
